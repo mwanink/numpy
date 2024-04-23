@@ -163,7 +163,20 @@ class MaskError(MAError):
 #                           Filling options                                   #
 ###############################################################################
 
+# b: boolean - c: complex - f: floats - i: integer - O: object - S: string
+default_filler = {'b': True,
+                  'c': 1.e20 + 0.0j,
+                  "float16": 65504,
+                  "float32": 1.e20,
+                  "float64": 1.e20,
+                  "i": 999999,
+                  'O': '?',
+                  'S': b'N/A',
+                  'V': b'???',
+                  'U': 'N/A'
+                  }
 
+"""
 # b: boolean - c: complex - f: floats - i: integer - O: object - S: string
 default_filler = {'b': True,
                   'c': 1.e20 + 0.0j,
@@ -175,6 +188,7 @@ default_filler = {'b': True,
                   'V': b'???',
                   'U': 'N/A'
                   }
+"""
 
 # Add datetime64 and timedelta64 types
 for v in ["Y", "M", "W", "D", "h", "m", "s", "ms", "us", "ns", "ps",
